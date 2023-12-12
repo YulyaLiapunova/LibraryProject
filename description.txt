@@ -1,0 +1,39 @@
+As a practical part of the course, you will need to develop a meaningful example of a simple WEB Service and two clients. The service consists of a database implemented by means of the MongoDB database management system and a number of interface modules implemented by means of NodeJS JavaScript technology. The service must support XML or JSON interface. The Interface must be documented sufficiently for reusing the service.
+The service should include at least:
+
+MongoDB Database with 2 collections.
+Four scripts incorporating MongoDB statements for communicating to the database.
+The scripts should process HTTP requests and generate well-formed XML or JSON as HTTP response.
+You have to also develop a front-end component that communicates to the server by means of the predefined interface. The front-end must be developed by means of JavaScript or TypeScript amended with jQuery, AngularJS or React technologies.
+
+You have to also develop an Internet Client (Application) that communicates to the server by means of the predefined interface. The application must be developed by means of PHP, Java (JSP, Groovy) or Node.js technology.
+
+Please remember, you have to upload a report consisting of 4 sections as follows:
+
+WEB Service description
+The description must include:
+Description of the server functionality
+Architecture of the software
+Sources of all the servlets/scripts
+Interface to the WEB service description
+Description of the input HTTP format
+Description of the output HTTP format
+Front-End
+This part should illustrate principles of the front-end programming and accessing the WEB services
+Description of the system architecture
+Sources of all the JavaScript
+WEB client
+This part should illustrate principles of the reusing WEB services by other WEB applications via HTTP requests and responces
+Description of the system architecture
+Sources of all the server-site scripts
+Please remember you can get maximum number of points (20) if your report and examples match EXACTLY all the above requirements, and your assignment demonstrates a meaningful functionality that is expected from a WEB service. Creating a working group
+You can develop the example in collaboration with colleagues. In other words, the example may be presented on behalf of a working group consisting of maximum 3 students.
+
+Packaging and presenting the results
+Thus, your results should consist of
+
+written report
+a functioning WEB service "service" archive.
+a sample front-end interface to your service. All the HTML, CSS, picture and Javascript files should be compressed into an "front-end" archive
+a sample application (client) reusing your service. All the PHP files should be compressed into an "client" archive
+All three four should be uploaded into your personal locker on the internet server.
