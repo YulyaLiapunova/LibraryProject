@@ -2,7 +2,10 @@ const booksService = require("../services/books");
 
 const getBooks = async (req, res, next) => {
   try {
-    const books = await booksService.getBooks();
+    const limit = req.query.limit || 10;
+    const offset = req.query.offset || 0;
+    const search = req.query.search;
+    const books = await booksService.getBooks({ limit, offset, search });
     res.send(books);
   } catch (error) {
     next(error);

@@ -2,8 +2,16 @@ const Book = require("../models/book");
 const usersService = require("../services/users");
 const NotFoundError = require("../errors/notFoundError");
 
-const getBooks = (params) => {
-  return Book.find(params).select("-borrowHistory").populate("borrowedBy", "name email -_id");
+const getBooks = ({ limit, offset, search }) => {
+  const findParams = {};
+  if (search) {
+    findParams["name"] = { $regex: search, $options: "i" };
+  }
+  return Book.find({ isDeleted: false, ...findParams })
+    .select("-borrowHistory")
+    .limit(limit)
+    .skip(offset)
+    .populate("borrowedBy", "firstName lastName email -_id");
 };
 
 const getBook = (id) => {
@@ -89,13 +97,15 @@ const returnBook = async (bookId) => {
 
 const getOverdueBooks = () => {
   const today = new Date();
-  return Book.find({ dueDate: { $lt: today } }).select("-borrowHistory").populate("borrowedBy");
+  return Book.find({ dueDate: { $lt: today } })
+    .select("-borrowHistory")
+    .populate("borrowedBy");
 };
 
 const getBookHistory = async (bookId) => {
   const book = await Book.findById(bookId).populate(
     "borrowHistory.user",
-    "name email"
+    "firstName lastName email"
   );
 
   if (!book) {

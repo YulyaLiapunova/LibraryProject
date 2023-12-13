@@ -1,8 +1,14 @@
 const User = require("../models/user");
 const NotFoundError = require("../errors/notFoundError");
 
-const getUsers = (params) => {
-  return User.find(params);
+const getUsers = ({ limit, offset, search }) => {
+  const findParams = {};
+  if (search) {
+    findParams["email"] = { $regex: search, $options: "i" };
+  }
+  return User.find({ isDeleted: false, ...findParams })
+    .limit(limit)
+    .skip(offset);
 };
 
 const getUser = (id) => {

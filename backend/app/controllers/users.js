@@ -2,7 +2,10 @@ const usersService = require("../services/users");
 
 const getUsers = async (req, res, next) => {
   try {
-    const users = await usersService.getUsers(req.params);
+    const limit = req.query.limit || 10;
+    const offset = req.query.offset || 0;
+    const search = req.query.search;
+    const users = await usersService.getUsers({ limit, offset, search });
     res.send(users);
   } catch (error) {
     next(error);

@@ -1,0 +1,11 @@
+Title: Developing Front-End Application
+Max:4 points
+Content: Developing a Front-End Application
+Read:
+lpi_services.pdf
+Consult any relevant tutorials available on the WEB
+Practical Work:
+Implement a front-end application for the back-end (web service) implemented as the previous task.
+The application must be developed as a single-page application by means of the TypeScript, additionally jQuery, AngularJS or React framework may be used.
+Reporting Results:
+Make a "Block_02.zip" out of all the files that you implemented for this task and upload it into your personal diary.
